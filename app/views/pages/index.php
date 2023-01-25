@@ -32,7 +32,7 @@ require APPROOT . '/views/inc/header.php'
   
 </div>
 
-<!-- section Shop Skin Care  -->
+<!-- section Products  -->
 
 
 <div class="mt-20 xl:mx-20">
@@ -46,25 +46,25 @@ require APPROOT . '/views/inc/header.php'
 </div>
     
 <!-- Card Product -->
-<div class="mt-10 mb-32 mx-40 ">
+<div class="xl:mt-10 xl:mb-32 xl:mx-40 ">
     <div class="grid grid-flow-row grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-32 pt-6 ">
         <?php foreach($data['products'] as $product) : ?>
-        <div class="flex flex-col items-center justify-center shadow-lg bg-neutral-100 rounded-br-3xl rounded-tl-3xl w-65 h-65" >
+        <div class="result_search flex flex-col items-center justify-center shadow-lg bg-neutral-100 rounded-br-3xl rounded-tl-3xl w-65 h-65" >
             <a href="#" >
-                <img class="w-64 h-64 rounded-tl-lg rounded-tr-lg" src="http://localhost/glowguru/public/images/skinecare/1.webp" alt="imge prd1">
+                <img class="w-64 h-64 rounded-tl-lg rounded-tr-lg" src="<?php echo URLROOT . '/images/upload/' .$product->image; ?>" alt="imge prd1">
             </a>
 
             <!-- description section -->
 
            
-            <div class="p-5 ml-4 flex flex-col items-center ">
+            <div class=" p-5 ml-4 flex flex-col items-center ">
                 <div class="flex flex-col justify-center items-center text-center gap-2">
                      
-                    <h2><a href="#" class="font-bold text-xl "><?php echo $product->name; ?></a></h2>
+                    <h2><a href="#" class="productName font-bold text-xl "><?php echo $product->name; ?></a></h2>
                     <h5 class="text-sm"><?php echo $product->description; ?></h5>
                    
                     <div class="flex flex-col items-center gap-4 mt-2 ">
-                      <p class="productPrice"><span class="font-bold text-md">$ </span><?php echo $product->price; ?></p>
+                      <p class="productPrice"><span class="font-bold text-md">Price : </span>$ <?php echo $product->price; ?></p>
                       <div class="flex flex-row gap-5">
 
                        

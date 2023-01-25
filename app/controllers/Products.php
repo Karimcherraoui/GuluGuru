@@ -20,38 +20,46 @@ class Products extends Controller
     {
         
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-          
-                // sanitize post array
-                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-                var_dump($_FILES);
-    
-                move_uploaded_file($_FILES['image']['tmp_name'], '/var/www/html/glowguru/public/images/upload/' . $_FILES['image']['name']);
 
-                
-    
-                $data = [
-                    'name' => $_POST['name'],
-                    'stock' => $_POST['stock'],
-                    'price' => $_POST['price'],
-                    'description' => $_POST['description'],
-                    'image' => $_FILES['image']['name'],
-                ];
-    
-                //$this->productModel->addProduct($data);
-                // make sure no errors
-                if ($this->productModel->addProduct($data)) {
-                    redirect('Pages/product');
-                } else {
-                    //load view with errors
-                    $this->view('pages/add', $data);
-                }
+                var_dump($_POST);
+
+                $count = count($_POST['name']);
+
+                    for ($i = 0; $i < $count; $i++){
+
+                        
+                        // sanitize post array
+                        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                        var_dump($_FILES);
+                        
+                        move_uploaded_file($_FILES['image']['tmp_name'][$i], '/var/www/html/glowguru/public/images/upload/' . $_FILES['image']['name'][$i]);
+                        
+                        
+                        
+                        $data = [
+                            'name' => $_POST['name'][$i],
+                            'stock' => $_POST['stock'][$i],
+                            'price' => $_POST['price'][$i],
+                            'description' => $_POST['description'][$i],
+                            'image' => $_FILES['image']['name'][$i],
+                        ];
+                        
+                        //$this->productModel->addProduct($data);
+                        // make sure no errors
+                        if ($this->productModel->addProduct($data)) {
+                            redirect('Products/product');
+                        } else {
+                            //load view with errors
+                            $this->view('pages/add', $data);
+                        }
+                    }
             
-        } else {
-            $data = [
-                'name' => '',
-                'stock' => '',
-                'price' => '',
-                'description' => '',
+                    } else {
+                        $data = [
+                            'name' => '',
+                            'stock' => '',
+                            'price' => '',
+                            'description' => '',
                 'image' => '',
 
             ];
@@ -115,13 +123,13 @@ class Products extends Controller
             //make sure no errors
             if (empty($data['name_err'])  && empty($data['stock_err']) && empty($data['price_err']) && empty($data['description_err'])) {
                 if ($this->productModel->edit($data)) {
-                    redirect('pages/product');
+                    redirect('Products/product');
                 } else {
                     die('something went wrong');
                 }
             } else {
                 //load view with errors
-                $this->view('pages/editproduct', $data);
+                $this->view('pages/edit', $data);
             }
         } else {
             $product =$this->productModel->findproductById($id);
@@ -141,20 +149,22 @@ class Products extends Controller
             'image_err' => ''
 
         ];
-        $this->view('pages/editproduct', $data);
+        $this->view('pages/edit', $data);
     }
     public function product()
     {
-        $products= $this->productModel->getProduct();
+        $products= $this->productModel->getProducts();
+        $rows = $this->productModel->stats();
         $data = [
         'products' => $products,
+        'num'=> $rows
         ];
         $this->view('pages/product', $data);
     }
     public function delete($id) {
         // get response from data if deleted or not return true or false
         if ($this->productModel->delet($id)) {
-            redirect('pages/product');
+            redirect('Products/product');
         } else {
             die('ops');
         }

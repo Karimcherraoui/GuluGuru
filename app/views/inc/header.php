@@ -19,7 +19,7 @@
    
         <nav class="bg-white sm:px-4 py-2.5 dark:bg-gray-900 relative w-full top-0 left-0 shadow-lg dark:border-gray-600 rounded-bl-lg rounded-tr-lg">
             <div class="container flex flex-wrap items-center justify-between mx-auto">
-                <a href="<?= URLROOT . '/Pages/index'?>" class="flex items-center md:order-1">
+                <a href="<?= URLROOT . '/pages/index'?>" class="flex items-center md:order-1">
                     <img src="http://localhost/glowguru/public/images//logo.png" class="w-36" alt="Site Logo">
                     
                 </a>
@@ -29,7 +29,7 @@
                     
                 <?php if(isset($_SESSION['user_id'])) : ?>
 
-                    <a href="<?= URLROOT . '/pages/product'?>">GESTION</a></button>
+                    <a href="<?= URLROOT . '/Products/product'?>">GESTION</a></button>
 
 
                     <?php endif; ?>

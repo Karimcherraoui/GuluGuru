@@ -68,7 +68,7 @@ class Database{
     }
 
 
-    // get result set as array of aobjects 
+    // get result set as array of objects 
 
     public function resultSet(){
         $this->execute();

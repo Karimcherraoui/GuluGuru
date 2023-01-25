@@ -1,9 +1,7 @@
-console.log(12);
+
 // get input field
 let searchInput = document.getElementById("search");
-var items = document.querySelectorAll(".result_search");
-
-console.log(items);
+let items = document.querySelectorAll(".result_search");
 
 // add event click on input field
 searchInput.addEventListener('input', listerItems);
@@ -26,4 +24,3 @@ function listerItems() {
         }
     })
 }
-

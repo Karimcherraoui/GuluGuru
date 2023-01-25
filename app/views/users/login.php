@@ -32,7 +32,7 @@ require APPROOT . '/views/inc/header.php'
               <span class="w-fit text-red-700"> <?php echo $data["password_err"]; ?></span>
               
             </div>
-            <button class="bg-blue-300 rounded-xl border py-2 w-1/2 hover:scale-110"><a href="<?= URLROOT . '/Pages/product'?>">LOGIN</a></button>
+            <button class="bg-blue-300 rounded-xl border py-2 w-1/2 hover:scale-110"><a href="<?= URLROOT . '/Products/product'?>">LOGIN</a></button>
   
   
   

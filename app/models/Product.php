@@ -66,6 +66,12 @@ class Product{
             return false;
         }
     }
+    public function stats()
+    {
+        
+
+       return $this->db->rowCount();
+    }
 
 
 }

@@ -28,24 +28,24 @@
             <div class="grid grid-cols-1 gap-6 mt-4 xl:mx-28 ">
                 <div>
                     <label for="name">Product Name</label>
-                    <input id="name" name="name" type="text"
+                    <input id="name" name="name[]" type="text"
                         class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-[#685942] rounded-md focus:border-[#685942] focus:outline-none focus:ring">
                 </div>
 
                 <div>
                     <label for="stock">Stock</label>
-                    <input id="stock" name="stock" type="number"
+                    <input id="stock" name="stock[]" type="number"
                         class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-[#685942] rounded-md focus:border-[#685942] focus:outline-none focus:ring">
                 </div>
 
                 <div>
                     <label for="price">Price</label>
-                    <input id="price" name="price" type="number"
+                    <input id="price" name="price[]" type="number"
                         class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-[#685942] rounded-md focus:border-[#685942] focus:outline-none focus:ring">
                 </div>
                 <div>
                     <label  for="Description">Description</label>
-                    <textarea id="Description" name="description" type="textarea"
+                    <textarea id="Description" name="description[]" type="textarea"
                         class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-[#685942] rounded-md focus:border-[#685942] focus:outline-none focus:ring"></textarea>
                 </div>
                 <div>
@@ -53,7 +53,7 @@
                         Product Image
                     </label>
                     
-                    <input id="file-upload" name="image" type="file" class="">
+                    <input id="file-upload" name="image[]" type="file" class="">
                             
                 </div>
             </div>
@@ -61,7 +61,7 @@
             <div class="flex justify-between mt-6">
                 <div>
                     <button>
-                        <a href="<?= URLROOT . '/pages/product'?>" class="px-6 py-2 leading-5 transform rounded-md focus:outline-none font-bold bg-red-500 hover:bg-green-600 text-white transition ">
+                        <a href="<?= URLROOT . '/Products/product'?>" class="px-6 py-2 leading-5 transform rounded-md focus:outline-none font-bold bg-red-500 hover:bg-green-600 text-white transition ">
                             Cancel
                         </a>
                     </button>
@@ -75,15 +75,20 @@
                 </div>
 
                 <div>
-                    <button
+                    <div
                     id="oneMore"
                         class="px-6 py-2  transform rounded-md focus:outline-none font-bold bg-indigo-500 hover:bg-indigo-600 text-white transition ">
                         Add Another Product
-                    </button>
+                    </div>
                 </div>
             </div>
         </form>
     </section>
+
+
+
+    <script src="<?php echo URLROOT . '/js/addMore.js'; ?>"></script>
+
 </body>
 
 </html>
