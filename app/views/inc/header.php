@@ -29,7 +29,7 @@
                     
                 <?php if(isset($_SESSION['user_id'])) : ?>
 
-                    <a href="<?= URLROOT . '/Products/product'?>">GESTION</a></button>
+                    <a href="<?= URLROOT . '/Products/product'?>">GESTION</a>
 
 
                     <?php endif; ?>

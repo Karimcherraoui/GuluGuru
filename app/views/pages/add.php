@@ -24,7 +24,7 @@
     <section class="max-w-4xl p-6 mx-auto bg-pink-200 rounded-md shadow-md my-12">
         <h2 class="text-4xl font-bold capitalize text-center">Add Product</h2>
 
-        <form action="<?php URLROOT . '/Products/add' ; ?>" method = "POST" id="form" enctype="multipart/form-data">
+        <form action="<?php URLROOT . '/Products/add' ; ?>" method="POST" id="form" enctype="multipart/form-data">
             <div class="grid grid-cols-1 gap-6 mt-4 xl:mx-28 ">
                 <div>
                     <label for="name">Product Name</label>
@@ -44,7 +44,7 @@
                         class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-[#685942] rounded-md focus:border-[#685942] focus:outline-none focus:ring">
                 </div>
                 <div>
-                    <label  for="Description">Description</label>
+                    <label for="Description">Description</label>
                     <textarea id="Description" name="description[]" type="textarea"
                         class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-[#685942] rounded-md focus:border-[#685942] focus:outline-none focus:ring"></textarea>
                 </div>
@@ -52,31 +52,30 @@
                     <label class="block">
                         Product Image
                     </label>
-                    
+
                     <input id="file-upload" name="image[]" type="file" class="">
-                            
+
                 </div>
             </div>
 
             <div class="flex justify-between mt-6">
                 <div>
                     <button>
-                        <a href="<?= URLROOT . '/Products/product'?>" class="px-6 py-2 leading-5 transform rounded-md focus:outline-none font-bold bg-red-500 hover:bg-green-600 text-white transition ">
+                        <a href="<?= URLROOT . '/Products/product'?>"
+                            class="px-6 py-2 leading-5 transform rounded-md focus:outline-none font-bold bg-red-500 hover:bg-green-600 text-white transition ">
                             Cancel
                         </a>
                     </button>
 
-                    <button
-                        type="submit"
+                    <button type="submit"
                         class="px-6 py-2 leading-5 transform rounded-md focus:outline-none font-bold bg-green-500 hover:bg-green-600 text-white transition ">
                         Save
                     </button>
-                  
+
                 </div>
 
                 <div>
-                    <div
-                    id="oneMore"
+                    <div id="oneMore"
                         class="px-6 py-2  transform rounded-md focus:outline-none font-bold bg-indigo-500 hover:bg-indigo-600 text-white transition ">
                         Add Another Product
                     </div>
